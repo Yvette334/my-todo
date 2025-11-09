@@ -21,7 +21,7 @@ A protected task manager built with Next.js 16, TypeScript, Firebase Authenticat
 
 1. Clone the repo and install dependencies:
    ```bash
-   git clone <repo-url>
+   git clone (https://github.com/Yvette334/my-todo.git)
    cd my-todo
    npm install
    ```
