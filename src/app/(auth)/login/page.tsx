@@ -1,69 +1,34 @@
-"use client";
-
-import { FormEvent, useState } from "react";
-import { useRouter } from "next/navigation";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../lib/firebase";
+'use client';
+import { useState } from 'react';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '@/app/lib/firebase';
+import { useRouter } from 'next/navigation';
 
 export default function LoginPage() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   const router = useRouter();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    if (loading) return;
-
-    setError("");
-    setLoading(true);
+  async function handleLogin(e: React.FormEvent) {
+    e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      router.push("/");
-    } catch (err) {
-      if (err instanceof Error) {
-        setError(err.message);
-      } else {
-        setError("Unable to log in. Please try again.");
-      }
-    } finally {
-      setLoading(false);
+      router.push('/');
+    } catch (err: any) {
+      setError('Invalid credentials');
     }
-  };
+  }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 px-4 py-10">
-      <div className="w-full max-w-sm space-y-5 rounded-2xl border border-slate-800/60 bg-slate-900/80 p-8 text-slate-100 shadow-2xl shadow-slate-950/40">
-        <h1 className="text-center text-2xl font-semibold">Login</h1>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <input
-            className="w-full rounded-xl border border-slate-700/60 bg-slate-950/50 px-4 py-3 text-sm text-slate-100 placeholder:text-slate-400 focus:border-emerald-400 focus:outline-none"
-            placeholder="Email"
-            type="email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-            required
-          />
-          <input
-            className="w-full rounded-xl border border-slate-700/60 bg-slate-950/50 px-4 py-3 text-sm text-slate-100 placeholder:text-slate-400 focus:border-emerald-400 focus:outline-none"
-            placeholder="Password"
-            type="password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-            required
-          />
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full rounded-xl bg-gradient-to-r from-emerald-400 to-emerald-500 px-4 py-3 text-sm font-semibold text-emerald-950 shadow-lg shadow-emerald-500/30 transition hover:from-emerald-300 hover:to-emerald-400 disabled:cursor-not-allowed disabled:opacity-70"
-          >
-            {loading ? "Logging in…" : "Login"}
-          </button>
-        </form>
-        {error && <p className="text-center text-sm text-rose-300">{error}</p>}
-      </div>
+    <div className="min-h-screen flex items-center justify-center bg-gray-900 text-white">
+      <form onSubmit={handleLogin} className="bg-gray-800 p-6 rounded space-y-3 w-80">
+        <h2 className="text-xl font-bold text-center">Login</h2>
+        <input className="w-full p-2 rounded bg-gray-700" placeholder="Email" type="email" value={email} onChange={e => setEmail(e.target.value)} />
+        <input className="w-full p-2 rounded bg-gray-700" placeholder="Password" type="password" value={password} onChange={e => setPassword(e.target.value)} />
+        <button className="bg-green-500 w-full p-2 rounded hover:bg-green-600">Login</button>
+        {error && <p className="text-red-400 text-sm text-center">{error}</p>}
+      </form>
     </div>
   );
 }
-
