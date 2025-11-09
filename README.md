@@ -48,5 +48,5 @@ Ensure this account exists in Firebase Authentication with sample tasks in Fires
 
 ## Screenshots
 
-![Alt screenshot](https://github.com/Yvette334/my-todo/blob/4532afa3352db44c1ee991eb391481941b72a356/screencapture-localhost-3000-2025-11-09-23_43_42.pdf)
+![Alt screenshot](https://github.com/Yvette334/my-todo/blob/2980fa5059fd8140088d331b44a79f7fd2ef6225/screencapture-localhost-3000-2025-11-09-23_43_42.png)
 
