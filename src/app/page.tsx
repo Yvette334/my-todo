@@ -106,7 +106,7 @@ export default function Dashboard() {
         await loadTasks(userEmail);
       } catch (error) {
         console.error(error);
-        setMessage('Could not update that task right now.');
+        setMessage('Could not update that task.');
       }
     },
     [loadTasks, userEmail]
@@ -159,7 +159,7 @@ export default function Dashboard() {
         <section className="rounded-2xl border border-slate-800/60 bg-slate-900/80 p-6 shadow-2xl shadow-slate-950/40">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div>
-              <h1 className="text-2xl font-semibold">Hello, {userEmail || 'Guest'} 👋</h1>
+              <h1 className="text-2xl font-semibold">Hello, {userEmail || 'Guest'}</h1>
               <p className="text-sm text-slate-400">Stay organised with your personal task board.</p>
             </div>
             <button
