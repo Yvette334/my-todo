@@ -14,7 +14,7 @@ export default function RegisterPage() {
     e.preventDefault();
     try {
       await createUserWithEmailAndPassword(auth, email, password);
-      router.push('/auth/login');
+      router.push('/login');
     } catch (err: any) {
       setError(err.message);
     }

@@ -1,12 +1,6 @@
-// app/lib/tasks/deleteTask.ts
-import { db } from '../firebase'
-import { doc, deleteDoc } from 'firebase/firestore'
+import { deleteDoc, doc } from "firebase/firestore";
+import { db } from "../firebase";
 
-export async function deleteTask(id: string) {
-  try {
-    await deleteDoc(doc(db, 'tasks', id))
-  } catch (error) {
-    console.error('Error deleting task:', error)
-    throw error
-  }
-}
+export const deleteTask = async (taskId: string) => {
+  await deleteDoc(doc(db, "tasks", taskId));
+};
