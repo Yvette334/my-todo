@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Firebase CRUD Task App
+
+A protected task manager built with Next.js 16, TypeScript, Firebase Authentication, and Firestore. Authenticated users can register, log in, and manage personalized tasks (create, read, update, delete) with priority and completion statuses.
+
+## Features
+
+- Firebase email/password authentication (register, login, logout)
+- Protected dashboard greeting authenticated users by email
+- CRUD task management with Firestore
+- Task filtering per user account
+- Realtime completion toggle and edit/delete actions
+- Responsive UI with Tailwind CSS
+
+## Tech Stack
+
+- Next.js 16 (App Router) + React 19 + TypeScript
+- Firebase Authentication & Firestore
+- Tailwind CSS
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repo and install dependencies:
+   ```bash
+   git clone <repo-url>
+   cd my-todo
+   npm install
+   ```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Run the development server:
+   ```bash
+   npm run dev
+   ```
+   Open `http://localhost:3000` (or the port shown) to view the app.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Deploy to Vercel and add the same Firebase environment variables in the project settings. After deploying, update this README with your live link:
 
-## Learn More
+- **Production URL:** `https://my-todo-82v4ukorf-xyvette334-gmailcoms-projects.vercel.app/login`
 
-To learn more about Next.js, take a look at the following resources:
+## Demo Credentials
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Email: `testuser@gmail.com`
+- Password: `test1234`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Ensure this account exists in Firebase Authentication with sample tasks in Firestore for evaluation.
 
-## Deploy on Vercel
+## Screenshots
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+![Alt screenshot](https://github.com/Yvette334/my-todo/blob/4532afa3352db44c1ee991eb391481941b72a356/screencapture-localhost-3000-2025-11-09-23_43_42.pdf)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
