@@ -37,7 +37,7 @@ A protected task manager built with Next.js 16, TypeScript, Firebase Authenticat
 
 Deploy to Vercel and add the same Firebase environment variables in the project settings. After deploying, update this README with your live link:
 
-- **Production URL:** `https://my-todo-82v4ukorf-xyvette334-gmailcoms-projects.vercel.app/login`
+- **Production URL:** `https://my-todo-sqh2.vercel.app/login`
 
 ## Demo Credentials
 
